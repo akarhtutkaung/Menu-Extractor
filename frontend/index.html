@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MenuExtract — AI Menu Reader</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title">MenuExtract</h1>
+      <p class="site-tagline">Upload any restaurant menu (PDF, JPG, or PNG) and get a clean, translated digital menu instantly.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Upload section -->
+    <section id="upload-section" class="upload-section">
+      <div id="drop-zone" class="drop-zone" role="button" tabindex="0" aria-label="Upload menu file">
+        <div class="drop-zone__icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5" />
+          </svg>
+        </div>
+        <p class="drop-zone__primary">Drag &amp; drop your menu here</p>
+        <p class="drop-zone__secondary">or</p>
+        <label class="btn btn--primary" for="file-input">
+          Browse file
+          <input id="file-input" type="file" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png" class="visually-hidden" />
+        </label>
+        <p class="drop-zone__hint">PDF, JPG, PNG &middot; Max 10 MB</p>
+      </div>
+      <p id="upload-error" class="upload-error" aria-live="polite" hidden></p>
+    </section>
+
+    <!-- Result section -->
+    <section id="result-section" class="result-section" hidden>
+      <!-- Loading state -->
+      <div id="loading-state" hidden>
+        <div class="spinner" aria-label="Extracting menu…"></div>
+        <p class="loading-text">Extracting menu&hellip;</p>
+      </div>
+
+      <!-- Error state -->
+      <div id="error-state" hidden>
+        <p id="error-message" class="error-message" aria-live="assertive"></p>
+        <button id="retry-btn" class="btn btn--secondary">Try another file</button>
+      </div>
+
+      <!-- Success state -->
+      <div id="success-state" hidden>
+        <div class="result-toolbar">
+          <button id="copy-btn" class="btn btn--ghost">Copy JSON</button>
+          <button id="download-btn" class="btn btn--ghost">Download JSON</button>
+          <button id="new-upload-btn" class="btn btn--secondary">New upload</button>
+        </div>
+        <div id="menu-output"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+    </div>
+  </footer>
+
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>
