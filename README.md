@@ -53,11 +53,13 @@ cp .env.example .env
 
 Backend
 ```bash
+source venv/bin/activate
 uvicorn backend.main:app --reload --port 8000
 ```
 
 Frontend
 ```bash
+source venv/bin/activate
 python3 -m http.server 3000 --directory frontend
 ```
 
