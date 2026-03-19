@@ -96,4 +96,3 @@ async def extract(file: UploadFile) -> JSONResponse:
     )
 
     return JSONResponse(content=menu_response.model_dump())
-    # return JSONResponse(content={"message": "PDF extracted successfully", "content": content})
